@@ -1,5 +1,7 @@
 # 🌟 Linkup for Claude: Internet Access for Your AI Assistant
 
+[![smithery badge](https://smithery.ai/badge/mcp-search-linkup)](https://smithery.ai/server/mcp-search-linkup)
+
 Give Claude access to real-time knowledge and premium content. Get rid of Claude's cutoff data and transform Claude's responses with current events, and trusted, premium sources through Linkup's powerful search capability.
 
 <a href="https://glama.ai/mcp/servers/69qbbv8hl9"><img width="380" height="200" src="https://glama.ai/mcp/servers/69qbbv8hl9/badge" alt="mcp-search-linkup MCP server" /></a>
