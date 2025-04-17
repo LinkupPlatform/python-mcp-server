@@ -4,7 +4,6 @@ from mcp.server.models import InitializationOptions
 import mcp.types as types
 from mcp.server import NotificationOptions, Server
 import mcp.server.stdio
-from pydantic import AnyUrl
 import logging
 
 server = Server("mcp-search-linkup")
@@ -12,7 +11,6 @@ logger = logging.getLogger("mcp-search-linkup")
 logger.setLevel(logging.INFO)
 
 
-## Logging
 @server.set_logging_level()
 async def set_logging_level(level: types.LoggingLevel) -> types.EmptyResult:
     logger.setLevel(level.upper())
@@ -22,7 +20,6 @@ async def set_logging_level(level: types.LoggingLevel) -> types.EmptyResult:
     return types.EmptyResult()
 
 
-## Tools
 @server.list_tools()
 async def handle_list_tools() -> list[types.Tool]:
     """
@@ -31,31 +28,29 @@ async def handle_list_tools() -> list[types.Tool]:
     return [
         types.Tool(
             name="search-web",
-            description="Perform a web search query using Linkup. This tool is helpful for finding information on the web.",
+            description="Performs an online search using Linkup search engine and retrieves the top results as a string. This function is useful for accessing real-time information, including news, articles, and other relevant web content.",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The query to search the web with. This should be a question, no need to write in keywords.",
+                        "description": "The search query to perform.",
                     },
+                    "depth": {
+                        "type": "string",
+                        "description": "The search depth to perform. Use 'standard' for straightforward queries with likely direct answers (e.g., facts, definitions, simple explanations). Use 'deep' for: 1) complex queries requiring comprehensive analysis or information synthesis, 2) queries containing uncommon terms, specialized jargon, or abbreviations that may need additional context, or 3) questions likely requiring up-to-date or specialized web search results to answer effectively.",
+                        "enum": ["standard", "deep"],
+                    }
                 },
-                "required": ["query"],
+                "required": ["query", "depth"],
             },
         )
     ]
 
 
 @server.call_tool()
-async def handle_call_tool(
-    name: str, arguments: dict | None
+async def handle_call_tool(arguments: dict | None
 ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
-    """
-    Handle search tool execution requests.
-    """
-    if name != "search-web":
-        raise ValueError(f"Unknown tool: {name}")
-
     if not arguments:
         raise ValueError("Missing arguments")
 
@@ -65,7 +60,7 @@ async def handle_call_tool(
         raise ValueError("Missing query")
 
     client = LinkupClient()
-    # Perform the search using LinkupClient
+
     search_response = client.search(
         query=query,
         depth="standard",
@@ -81,7 +76,6 @@ async def handle_call_tool(
 
 
 async def main():
-    # Run the server using stdin/stdout streams
     async with mcp.server.stdio.stdio_server() as (read_stream, write_stream):
         await server.run(
             read_stream,
