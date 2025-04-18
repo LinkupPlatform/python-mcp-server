@@ -1,11 +1,11 @@
 import asyncio
-from linkup import LinkupClient
-from mcp.server.models import InitializationOptions
-import mcp.types as types
-from mcp.server import NotificationOptions, Server
-import mcp.server.stdio
-from pydantic import AnyUrl
 import logging
+
+import mcp.server.stdio
+import mcp.types as types
+from linkup import LinkupClient
+from mcp.server import NotificationOptions, Server
+from mcp.server.models import InitializationOptions
 
 server = Server("mcp-search-linkup")
 logger = logging.getLogger("mcp-search-linkup")
@@ -31,13 +31,15 @@ async def handle_list_tools() -> list[types.Tool]:
     return [
         types.Tool(
             name="search-web",
-            description="Perform a web search query using Linkup. This tool is helpful for finding information on the web.",
+            description="Perform a web search query using Linkup. This tool is helpful for finding "
+            "information on the web.",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The query to search the web with. This should be a question, no need to write in keywords.",
+                        "description": "The query to search the web with. This should be a "
+                        "question, no need to write in keywords.",
                     },
                 },
                 "required": ["query"],
