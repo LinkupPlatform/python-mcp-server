@@ -29,25 +29,19 @@ async def handle_list_tools() -> list[types.Tool]:
     return [
         types.Tool(
             name="search-web",
-            description="Performs an online search using Linkup search engine and retrieves the "
-            "top results as a string. This function is useful for accessing real-time information, "
-            "including news, articles, and other relevant web content.",
+            description="Search the web in real time using Linkup. Use this tool whenever the user needs trusted facts, news, or source-backed information. Returns comprehensive content from the most relevant sources.",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The search query to perform.",
+                        "description": "Natural language search query. Full questions work best, e.g., 'How does the new EU AI Act affect startups?'",
                     },
                     "depth": {
                         "type": "string",
                         "description": "The search depth to perform. Use 'standard' for "
-                        "straightforward queries with likely direct answers (e.g., facts, "
-                        "definitions, simple explanations). Use 'deep' for: 1) complex queries "
-                        "requiring comprehensive analysis or information synthesis, 2) queries "
-                        "containing uncommon terms, specialized jargon, or abbreviations that may "
-                        "need additional context, or 3) questions likely requiring up-to-date or "
-                        "specialized web search results to answer effectively.",
+                        "queries with likely direct answers. Use 'deep' for complex queries "
+                        "requiring comprehensive analysis or multi-hop questions",
                         "enum": ["standard", "deep"],
                     },
                 },
