@@ -31,13 +31,13 @@ async def handle_list_tools() -> list[types.Tool]:
     return [
         types.Tool(
             name="search-web",
-            description="Perform a web search query using Linkup. This tool is helpful for finding information on the web.",
+            description="Search the web in real time using Linkup. Use this tool whenever the user needs trusted facts, news, or source-backed information. Returns comprehensive content from the most relevant sources.",
             inputSchema={
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The query to search the web with. This should be a question, no need to write in keywords.",
+                        "description": "Natural language search query. Full questions work best, e.g., 'How does the new EU AI Act affect startups?'",
                     },
                 },
                 "required": ["query"],
