@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.11"
 
 [[package]]
@@ -37,7 +38,7 @@ name = "click"
 version = "8.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "platform_system == 'Windows'" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de", size = 336121 }
 wheels = [
@@ -111,15 +112,15 @@ wheels = [
 
 [[package]]
 name = "linkup-sdk"
-version = "0.1.8"
+version = "0.2.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c9/de/1014a3f96a159879ca1640a7a6039d73131613137d8d3697cbc512641bfb/linkup_sdk-0.1.8.tar.gz", hash = "sha256:73b85b0f07938a0b74fc26533ad6e3b754b26a4f6a42fb948d8e50db1e670a8a", size = 8504 }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/c7/d9a85331bf2611ecac67f1ad92a6ced641b2e2e93eea26b17a9af701b3d1/linkup_sdk-0.2.4.tar.gz", hash = "sha256:2b8fd1894b9b4715bc14aabcbf53df6def9024f2cc426f234cc59e1807ec4c12", size = 9392 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1f/e2/c578e5b8213a051b67bcfd65563b3e1ffc1c847632e462fc3e7e383ca470/linkup_sdk-0.1.8-py3-none-any.whl", hash = "sha256:00916a550128ef5bc320b7f5de18ca3ed5c2aad233f47fdbca98cabe907b876f", size = 7505 },
+    { url = "https://files.pythonhosted.org/packages/18/d8/bb9e01328fe5ad979e3e459c0f76321d295663906deef56eeaa5ce0cf269/linkup_sdk-0.2.4-py3-none-any.whl", hash = "sha256:8bc4c4f34de93529136a14e42441d803868d681c2bf3fd59be51923e44f1f1d4", size = 8325 },
 ]
 
 [[package]]
@@ -141,7 +142,7 @@ wheels = [
 
 [[package]]
 name = "mcp-search-linkup"
-version = "0.1.1"
+version = "0.1.3"
 source = { editable = "." }
 dependencies = [
     { name = "linkup-sdk" },
@@ -155,7 +156,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "linkup-sdk", specifier = ">=0.1.8" },
+    { name = "linkup-sdk", specifier = ">=0.2.0" },
     { name = "mcp", specifier = ">=1.0.0" },
 ]
 
