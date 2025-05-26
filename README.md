@@ -1,4 +1,4 @@
-# Linkup MCP Server (Python)
+# 🌟 Linkup Python MCP Server
 
 A Model Context Protocol (MCP) server that provides web search capabilities through Linkup's advanced search API. This server enables AI assistants and development tools to perform intelligent web searches with natural language queries.
 
@@ -7,7 +7,7 @@ A Model Context Protocol (MCP) server that provides web search capabilities thro
 ## ✨ Why Linkup?
 
 - 🔍 **Advanced Web Search**: Leverage Linkup's AI-powered search engine for high-quality, relevant results
-- 💬 **Natural Language Queries**: Ask questions in plain English - no need for keyword optimization
+- 💬 **Natural Language Queries**: Ask questions in plain English or your preferred language - no need for keyword optimization
 - 🚀 **Real-time Information**: Access up-to-date web content and current information
 - 📚 **Comprehensive Results**: Get detailed search results with source citations
 - 🔧 **Easy Integration**: Works with any MCP-compatible client
