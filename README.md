@@ -36,7 +36,7 @@ The Linkup MCP server excels at answering complex questions and finding specific
 
 ## 🤝 Contributing
 
-Pull requests are welcome! Feel free to open an issue first to discuss what you’d like to change.
+Pull requests are welcome! Feel free to open an issue first to discuss what you’d like to see improved.
 
 ## 📚 Resources
 
